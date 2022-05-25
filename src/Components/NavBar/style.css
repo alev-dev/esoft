@@ -1,4 +1,6 @@
-.esoft-navbar {}
+.esoft-navbar {
+    position: relative;
+}
 
 .esoft-navbar-container {
     display: flex;
@@ -16,7 +18,7 @@
 
 }
 
-.esoft-navbar-menu ul {
+.esoft-navbar-menu-links {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,4 +37,29 @@
 .esoft-navbar-menu-item a {
     color: #000;
     text-decoration: none;
+}
+
+.esoft-navbar-menu-showOptions {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .esoft-navbar-menu-links {
+        display: none;
+    }
+
+    .esoft-navbar-menu-showOptions {
+        display: block;
+    }
+
+}
+
+.esoft-navbar-menu-links-mobile {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    background-color: #fff;
+
 }
