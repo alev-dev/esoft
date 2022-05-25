@@ -17,9 +17,11 @@ function UserBar() {
     return (
         <nav className="esoft-navbar">
             <div className="esoft-navbar-container">
-                <div className="esoft-navbar-logo">
-                    <img src={Logo} alt="Esoft" />
-                </div>
+                <Link to="/">
+                    <div className="esoft-navbar-logo">
+                        <img src={Logo} alt="Esoft" />
+                    </div>
+                </Link>
                 <div className="esoft-navbar-menu">
                     <ul>
                         <li className="esoft-navbar-menu-item">
