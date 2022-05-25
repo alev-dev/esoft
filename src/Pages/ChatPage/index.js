@@ -1,12 +1,20 @@
 import { useState } from 'react';
 import './style.css';
 function ChatPage() {
+    const [messageData, setMessageData] = useState('');
     const [messages, setmessages] = useState([
         { content: 'oi', created_at: '2020-05-05' },
         { content: 'tudo bem ?', created_at: '2020-05-05' },
         { content: 'queria saber quando vai lançar novo conteudo', created_at: '2020-05-05' },
     ]);
 
+    const handleMessageChange = (e) => {
+        setMessageData(e.target.value);
+    };
+    const handleSubmit = () => {
+        setmessages([...messages, { content: messageData, created_at: new Date() }]);
+        setMessageData('');
+    };
     return (
         <div className="esoft-content">
             <div className="esoft-chat">
@@ -26,6 +34,18 @@ function ChatPage() {
                             </div>
                         </div>
                     ))}
+                </div>
+                <div className="esoft-chat-footer">
+                    <input
+                        type="text"
+                        value={messageData}
+                        name="message"
+                        placeholder="Digite sua mensagem"
+                        onChange={(e) => handleMessageChange(e)}
+                    />
+                    <button className="esoft-chat-footer-btn" onClick={handleSubmit}>
+                        Enviar
+                    </button>
                 </div>
             </div>
         </div>
