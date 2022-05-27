@@ -13,7 +13,7 @@ function UserBar() {
 
     const handleLogout = () => {
         setoptionBar(false);
-        localStorage.removeItem('user');
+        localStorage.removeItem('token');
         dispatch(setUser(null));
         navigate('/');
     };

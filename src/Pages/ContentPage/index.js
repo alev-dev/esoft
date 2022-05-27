@@ -1,12 +1,13 @@
 import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import NotLogged from './NotLogget';
 import StudentContent from './Student';
 import './style.css';
 function ContentPage() {
     const user = useSelector((state) => state.user);
-    console.log(user?.userlogged);
-    if (user?.userlogged) {
-        return <StudentContent />;
+
+    if (user?.userlogged && user.userlogged.role === 'Aluno') {
+        return <Navigate to="/student/content" />;
     }
     return (
         <div className="esoft-content">

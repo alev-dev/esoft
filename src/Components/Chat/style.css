@@ -4,6 +4,7 @@
     right: 20px;
     z-index: 1;
     padding: 20px;
+    background-color: rgb(250, 240, 184);
     border-radius: 999px;
     border: 1px solid #ccc;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
@@ -12,8 +13,8 @@
 }
 
 .chat-widget img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
 
 .chat-widget:hover {

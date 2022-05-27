@@ -65,8 +65,7 @@
     height: 40px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    background-color: rgb(150, 150, 150);
-    color: #fff;
+    color: #000;
     font-size: 20px;
     font-weight: bold;
 }

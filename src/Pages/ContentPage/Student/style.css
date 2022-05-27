@@ -1,56 +1,49 @@
-.esoft-student-content {
+.esoft-content-subjects {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: calc(100vh - 60px);
-    width: 100vw;
-}
-
-.esoft-student-content-section {
-    width: 100%;
-}
-
-.esoft-student-content-section h3 {
-    font-size: 30px;
-    font-weight: bold;
-    color: #000;
-    text-align: center;
-}
-
-.esoft-student-content-list {
-    display: flex;
-
     justify-content: center;
     align-items: center;
-
+    flex-wrap: wrap;
 }
 
-.esoft-student-content-list-item {
+.esoft-content-subjects a {
+    text-decoration: none !important;
+}
+
+.esoft-content-subjects-subject {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 10px;
-    width: 200px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin: 30px;
+    width: 250px;
+    height: 250px;
     padding: 20px;
-}
-
-.esoft-student-content-list-item-title {
-    font-size: 20px;
-    font-weight: bold;
-    color: #000;
-}
-
-.esoft-student-content-list-item-footer button {
-    width: 200px;
-    height: 40px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    color: #000;
-    font-size: 18px;
-    font-weight: bold;
     cursor: pointer;
+}
+
+.esoft-content-subjects-subject:hover {
+    transform: scale(1.2);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.esoft-content-subjects-subject-title {
+    font-size: 22px;
+    margin-bottom: 4px;
+    font-weight: bold;
+    color: #000;
+
+}
+
+.esoft-content-subjects-subject-teacher {
+    font-size: 18px;
+    color: #000;
+}
+
+.esoft-content-subjects-subject-image img {
+    width: 250px;
+    height: 200px;
 }

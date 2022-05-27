@@ -8,6 +8,9 @@ import RegisterPage from '../Pages/RegisterPage';
 import StudentContent from '../Pages/ContentPage/Student';
 import ChatWidget from '../Components/Chat';
 import ChatPage from '../Pages/ChatPage';
+import StudentGuard from '../guards/StudentGuard';
+import SubjectContent from '../Pages/ContentPage/Student/SubjectPage';
+import VideoPage from '../Pages/Videopage';
 
 function AppRouter() {
     return (
@@ -57,9 +60,31 @@ function AppRouter() {
                 <Route
                     path="/student/content"
                     element={
-                        <MainLayout>
-                            <StudentContent />
-                        </MainLayout>
+                        <StudentGuard>
+                            <MainLayout>
+                                <StudentContent />
+                            </MainLayout>
+                        </StudentGuard>
+                    }
+                />
+                <Route
+                    path="/student/content/:id"
+                    element={
+                        <StudentGuard>
+                            <MainLayout>
+                                <SubjectContent />
+                            </MainLayout>
+                        </StudentGuard>
+                    }
+                />
+                <Route
+                    path="/student/content/:subjectId/video/:id"
+                    element={
+                        <StudentGuard>
+                            <MainLayout>
+                                <VideoPage />
+                            </MainLayout>
+                        </StudentGuard>
                     }
                 />
                 <Route

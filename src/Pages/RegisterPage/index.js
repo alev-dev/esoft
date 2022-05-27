@@ -1,8 +1,12 @@
+import axios from 'axios';
 import { useState } from 'react';
+import NotificationContainer from 'react-notifications/lib/NotificationContainer';
+import NotificationManager from 'react-notifications/lib/NotificationManager';
 import { Link, useNavigate } from 'react-router-dom';
 import './style.css';
+
 function RegisterPage() {
-    const [userData, setuserData] = useState({ email: '', password: '', confirmPassword: '', name: '' });
+    const [userData, setuserData] = useState({ email: '', password: '', confirmPassword: '', name: '', semester: 1 });
     const navigate = useNavigate();
 
     function handleChange(event) {
@@ -11,10 +15,42 @@ function RegisterPage() {
     }
 
     function handleSubmit() {
-        console.log(userData);
-
-        return navigate('/authentication/login');
+        if (validateDates()) {
+            axios
+                .post('https://esoft-bckd.herokuapp.com/users', userData)
+                .then((res) => {
+                    NotificationManager.success('COnta criada com sucesso', 'Sucesso', 3000);
+                    return navigate('/authentication/login');
+                })
+                .catch((err) => {
+                    NotificationManager.error('Erro no sistema ', 'Error!', 4000);
+                });
+        }
     }
+
+    const validateDates = () => {
+        if (!userData.email.includes('@ftc.edu.br')) {
+            NotificationManager.error('Somente emails institucionais são permitidos', 'Error!', 4000);
+            return false;
+        }
+
+        if (userData.password.length === 0) {
+            NotificationManager.error('Preencha o campo senha', 'Error!', 4000);
+            return false;
+        }
+
+        if (userData.password !== userData.confirmPassword) {
+            NotificationManager.error('Senhas não conferem', 'Error!', 4000);
+            return false;
+        }
+
+        if (userData.password.length < 6) {
+            NotificationManager.error('Senha deve ter no mínimo 6 caracteres', 'Error!', 4000);
+            return false;
+        }
+
+        return true;
+    };
 
     return (
         <div className="esoft-login">
@@ -24,7 +60,7 @@ function RegisterPage() {
                     <form>
                         <div className="esoft-login-form-field">
                             <label htmlFor="email">Nome</label>
-                            <input type="email" id="email" name="email" onChange={handleChange} />
+                            <input type="name" id="name" name="name" onChange={handleChange} />
                         </div>
                         <div className="esoft-login-form-field">
                             <label htmlFor="email">Email Institucional</label>
@@ -36,7 +72,17 @@ function RegisterPage() {
                         </div>
                         <div className="esoft-login-form-field">
                             <label htmlFor="password">Confirmar Senha</label>
-                            <input type="password" id="password" name="password" onChange={handleChange} />
+                            <input type="password" id="password" name="confirmPassword" onChange={handleChange} />
+                        </div>
+                        <div className="esoft-login-form-field">
+                            <label htmlFor="password">Semestre</label>
+                            <input
+                                type="number"
+                                id="semester"
+                                name="semester"
+                                value={userData?.semester}
+                                onChange={handleChange}
+                            />
                         </div>
                     </form>
                     <div className="esoft-login-form-button">
