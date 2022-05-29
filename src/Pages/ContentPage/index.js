@@ -9,6 +9,9 @@ function ContentPage() {
     if (user?.userlogged && user.userlogged.role === 'Aluno') {
         return <Navigate to="/student/content" />;
     }
+    if (user?.userlogged && user.userlogged.role === 'Admin') {
+        return <Navigate to="/admin/subjects" />;
+    }
     return (
         <div className="esoft-content">
             <NotLogged />

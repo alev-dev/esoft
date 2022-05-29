@@ -1,0 +1,26 @@
+.esoft-content-subjects-new {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 22px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #ccc;
+
+
+}
+
+.esoft-content-subjects-new:hover {
+    transform: scale(1.1);
+    background-color: rgb(255, 227, 103);
+}
+
+.esoft-student-content-list-item-description {
+    max-width: 25ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

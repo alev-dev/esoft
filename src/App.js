@@ -14,7 +14,7 @@ function App() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const newSocket = io(`https://esoft-bckd.herokuapp.com`);
+        const newSocket = io(`http://localhost:3000`);
         setSocket(newSocket);
         return () => newSocket.close();
     }, [setSocket]);

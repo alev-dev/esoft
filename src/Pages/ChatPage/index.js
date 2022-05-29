@@ -1,20 +1,32 @@
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { Socket } from 'socket.io-client';
+import { getUser } from '../../common/services/token';
 import './style.css';
 function ChatPage() {
-    const [messageData, setMessageData] = useState('');
-    const [messages, setmessages] = useState([
-        { content: 'oi', created_at: '2020-05-05' },
-        { content: 'tudo bem ?', created_at: '2020-05-05' },
-        { content: 'queria saber quando vai lançar novo conteudo', created_at: '2020-05-05' },
-    ]);
+    const [text, settext] = useState('');
+    const [messages, setmessages] = useState([]);
+    const { _id, name, role } = getUser();
+
+    useEffect(() => {
+        axios.get(`https://esoft-bckd.herokuapp.com/chats/${_id}`).then((response) => {
+            setmessages(response.data[0].message);
+        });
+    }, []);
 
     const handleMessageChange = (e) => {
-        setMessageData(e.target.value);
+        settext(e.target.value);
     };
     const handleSubmit = () => {
-        setmessages([...messages, { content: messageData, created_at: new Date() }]);
-        setMessageData('');
+        var data = {
+            message: { text, name, role },
+            userId: _id,
+        };
+        axios.post(`https://esoft-bckd.herokuapp.com/chats/sendMessage/${_id}`, data).then((response) => {
+            setmessages(response.data.message);
+        });
     };
+
     return (
         <div className="esoft-content">
             <div className="esoft-chat">
@@ -27,10 +39,16 @@ function ChatPage() {
                     </div>
                 </div>
                 <div className="esoft-chat-body">
-                    {messages.map((message, index) => (
+                    {messages?.map((message, index) => (
                         <div key={index} className="esoft-chat-body-message">
-                            <div className="esoft-chat-body-message-content">
-                                <p>{message.content}</p>
+                            <div
+                                className={
+                                    message.role == 'Aluno'
+                                        ? 'esoft-chat-body-message-content'
+                                        : 'esoft-chat-body-message-content-admin'
+                                }
+                            >
+                                <p>{message.text}</p>
                             </div>
                         </div>
                     ))}
@@ -38,7 +56,7 @@ function ChatPage() {
                 <div className="esoft-chat-footer">
                     <input
                         type="text"
-                        value={messageData}
+                        value={text}
                         name="message"
                         placeholder="Digite sua mensagem"
                         onChange={(e) => handleMessageChange(e)}

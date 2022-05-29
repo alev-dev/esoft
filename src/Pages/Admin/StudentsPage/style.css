@@ -1,0 +1,21 @@
+.esoft-content-students-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.esoft-content-students-student {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+}
+
+.esoft-content-students-student-item {
+    margin: 20px;
+}

@@ -11,6 +11,15 @@ import ChatPage from '../Pages/ChatPage';
 import StudentGuard from '../guards/StudentGuard';
 import SubjectContent from '../Pages/ContentPage/Student/SubjectPage';
 import VideoPage from '../Pages/Videopage';
+import NotAuthorized from '../common/NotAuthorized';
+import AdminGuard from '../guards/AdminGuard';
+import Subjects from '../Pages/Admin/SubjectsPage';
+import ChatAdmin from '../Pages/Admin/ChatPage';
+import StudentsPage from '../Pages/Admin/StudentsPage';
+import SubjectContentAdmin from '../Pages/Admin/SubjectsPage/SubjectPage';
+import NewAtivitie from '../Pages/Admin/SubjectsPage/NewPage/NewAtivitie';
+import NewVideoPage from '../Pages/Admin/SubjectsPage/NewPage/NewVideo';
+import DirectChat from '../Pages/Admin/ChatPage/DirectChat';
 
 function AppRouter() {
     return (
@@ -68,6 +77,76 @@ function AppRouter() {
                     }
                 />
                 <Route
+                    path="/admin/subjects"
+                    element={
+                        <AdminGuard>
+                            <MainLayout>
+                                <Subjects />
+                            </MainLayout>
+                        </AdminGuard>
+                    }
+                />
+                <Route
+                    path="/admin/subjects/:id"
+                    element={
+                        <AdminGuard>
+                            <MainLayout>
+                                <SubjectContentAdmin />
+                            </MainLayout>
+                        </AdminGuard>
+                    }
+                />
+                <Route
+                    path="/admin/subjects/:id/newAtivitie"
+                    element={
+                        <AdminGuard>
+                            <MainLayout>
+                                <NewAtivitie />
+                            </MainLayout>
+                        </AdminGuard>
+                    }
+                />
+                <Route
+                    path="/admin/subjects/:id/newVideo"
+                    element={
+                        <AdminGuard>
+                            <MainLayout>
+                                <NewVideoPage />
+                            </MainLayout>
+                        </AdminGuard>
+                    }
+                />
+                <Route
+                    path="/admin/chats"
+                    element={
+                        <AdminGuard>
+                            <MainLayout>
+                                <ChatAdmin />
+                            </MainLayout>
+                        </AdminGuard>
+                    }
+                />
+                <Route
+                    path="/admin/chats/:id"
+                    element={
+                        <AdminGuard>
+                            <MainLayout>
+                                <DirectChat />
+                            </MainLayout>
+                        </AdminGuard>
+                    }
+                />
+                <Route
+                    path="/admin/students"
+                    element={
+                        <AdminGuard>
+                            <MainLayout>
+                                <StudentsPage />
+                            </MainLayout>
+                        </AdminGuard>
+                    }
+                />
+                <Route
                     path="/student/content/:id"
                     element={
                         <StudentGuard>
@@ -95,6 +174,7 @@ function AppRouter() {
                         </MainLayout>
                     }
                 />
+                <Route path="/notAuthorized" element={<NotAuthorized />} />
             </Routes>
             <ChatWidget />
         </>

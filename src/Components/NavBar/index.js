@@ -5,7 +5,8 @@ import './style.css';
 function NavBar() {
     const user = useSelector((state) => state.user);
 
-    if (user?.role === 'admin') {
+    console.log(user);
+    if (user?.userlogged?.role === 'Admin') {
         return <AdminBar />;
     }
 
