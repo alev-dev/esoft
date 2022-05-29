@@ -21,6 +21,7 @@ function AdminBar() {
     const handleOptionBar = () => {
         setoptionBar(!optionBar);
     };
+
     return (
         <nav className="esoft-navbar">
             <div className="esoft-navbar-container">
