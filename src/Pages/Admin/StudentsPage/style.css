@@ -1,6 +1,7 @@
 .esoft-content-students-list {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 
@@ -9,13 +10,18 @@
 .esoft-content-students-student {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin: 10px;
+    width: 90%;
     padding: 20px;
 }
 
 .esoft-content-students-student-item {
+    width: 200px;
     margin: 20px;
+    text-decoration: none;
+    color: #000;
 }

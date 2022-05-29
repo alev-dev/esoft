@@ -3,8 +3,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 60px);
     width: 100vw;
+}
+
+@media screen and (min-width: 768px) {
+    .esoft-content {
+        height: calc(100vh - 60px);
+    }
+
+
 }
 
 .esoft-content-notlogged {
@@ -28,7 +35,7 @@
 }
 
 .esoft-content-notlogged button:hover {
-    background-color: rgb(255, 227, 103);
+    background-color: rgb(255, 249, 225);
     color: #000;
     cursor: pointer;
 

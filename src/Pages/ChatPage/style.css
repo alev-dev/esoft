@@ -12,6 +12,13 @@
     overflow-y: auto;
 }
 
+.esoft-chat-name {
+    color: rgb(126, 126, 126);
+    position: absolute;
+    top: 2px;
+    left: 30px;
+}
+
 .esoft-chat {
     width: 95%;
     display: flex;
@@ -22,32 +29,46 @@
 
 .esoft-chat-body-message-content {
     margin: 10px;
-    padding: 5px 20px;
+    padding: 2px 4px;
     border-radius: 28px;
+    min-width: 200px;
+    max-width: 80%;
     border: 1px solid #ccc;
-    background-color: rgb(238, 230, 155);
+    background-color: rgb(233, 231, 211);
+    position: relative;
+
 
 
 }
 
 .esoft-chat-body-message-content-admin {
     margin: 10px;
-    padding: 5px 20px;
+    margin-left: auto;
+
+    min-width: 200px;
+    max-width: 80%;
+    padding: 5px 10px;
+    position: relative;
+
     border-radius: 28px;
     border: 1px solid #ccc;
-    background-color: rgb(155, 235, 238);
+    background-color: rgb(191, 248, 250);
 
 
 }
 
 .esoft-chat-footer {
     width: 100%;
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 10px;
 
+}
+
+.esoft-chat-body-message p {
+    margin-left: 10px;
 }
 
 .esoft-chat-footer input {

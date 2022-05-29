@@ -36,6 +36,8 @@ function SubjectContentAdmin() {
 
                 <button className="esoft-content-subjects-new">Criar novo</button>
             </div>
+            <hr />
+
             <div className="esoft-student-content-section">
                 <h3>Atividades</h3>
                 <div className="esoft-student-content-list">
@@ -59,6 +61,8 @@ function SubjectContentAdmin() {
                     <button className="esoft-content-subjects-new">Criar novo</button>
                 </Link>
             </div>
+            <hr />
+
             <div className="esoft-student-content-section">
                 <h3>Videos</h3>
                 <div className="esoft-student-content-list">

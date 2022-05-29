@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px 20px;
     font-size: 22px;
     border-radius: 6px;
     font-weight: bold;
@@ -15,7 +15,7 @@
 
 .esoft-content-subjects-new:hover {
     transform: scale(1.1);
-    background-color: rgb(255, 227, 103);
+    background-color: rgb(255, 249, 225);
 }
 
 .esoft-student-content-list-item-description {

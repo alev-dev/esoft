@@ -28,7 +28,9 @@
 }
 
 .esoft-navbar-menu-item {
+
     margin: 0px 20px;
+    padding: 16px;
     font-size: 20px;
     list-style-type: none;
     cursor: pointer;
@@ -63,10 +65,13 @@
 
 .esoft-navbar-menu-links-mobile {
     display: flex;
+    z-index: 10;
+    border: 1px solid #ccc;
+    background-color: rgb(255, 249, 231);
     flex-direction: column;
     position: absolute;
     top: 60px;
-    right: 0px;
-    background-color: #fff;
+    margin: 0;
+    right: 5px;
 
 }

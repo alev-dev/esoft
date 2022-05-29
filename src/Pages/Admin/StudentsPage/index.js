@@ -23,9 +23,16 @@ function StudentsPage() {
                             <div key={index} className="esoft-content-students-list">
                                 <Link to={`/students/${student._id}`}>
                                     <div className="esoft-content-students-student">
-                                        <div className="esoft-content-students-student-item">{student.name}</div>
-                                        <div className="esoft-content-students-student-item">{student.email}</div>
-                                        <div className="esoft-content-students-student-item">{student.semester}</div>
+                                        <div className="esoft-content-students-student-item">{`nome : ${student.name}`}</div>
+                                        <div className="esoft-content-students-student-item">{`Email : ${student.email}`}</div>
+                                        <div className="esoft-content-students-student-item">{`Semestre : ${student.semester}`}</div>
+                                        <div className="esoft-content-students-student-item">{`Atividades : ${
+                                            student.ativities ? student.ativities : 0
+                                        }`}</div>
+                                        <div className="esoft-content-students-student-item">{`Mensagens : ${
+                                            student.messages ? student.messages : 0
+                                        }`}</div>
+                                        <div className="esoft-content-students-student-item">{`Pontos : ${student.points}`}</div>
                                     </div>
                                 </Link>
                             </div>

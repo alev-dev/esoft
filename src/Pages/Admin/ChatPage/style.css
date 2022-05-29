@@ -1,0 +1,39 @@
+.esoft-content-chats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 22px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    width: 90%;
+    padding: 20px;
+}
+
+
+.esoft-content-chats-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    font-size: 22px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px #ccc;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    padding: 20px;
+}
+
+.esoft-content-chats-list:hover {
+    transform: scale(1.1);
+    background-color: rgb(255, 249, 225);
+}
+
+.esoft-content-chats-chat-item {
+    color: #000;
+}

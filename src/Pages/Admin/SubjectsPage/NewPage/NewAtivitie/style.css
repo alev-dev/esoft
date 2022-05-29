@@ -77,3 +77,22 @@
     color: #000;
     cursor: pointer;
 }
+
+.esoft-content-ativitie-question-points {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.esoft-content-ativitie-question-points input {
+    width: 100px;
+    height: 30px;
+    margin-left: 20px;
+    border-radius: 5px;
+
+    border: 1px solid #ccc;
+    padding: 3px 10px;
+    font-size: 20px;
+
+}

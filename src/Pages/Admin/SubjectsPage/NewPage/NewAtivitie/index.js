@@ -9,6 +9,7 @@ function NewAtivitie() {
     const [ativitie, setAtivitie] = useState({
         question: '',
         answers: [],
+        points: 10,
     });
 
     const handleQuestionChange = (e) => {
@@ -24,6 +25,13 @@ function NewAtivitie() {
         setAtivitie({
             ...ativitie,
             answers,
+        });
+    };
+
+    const handlePointsChange = (e) => {
+        setAtivitie({
+            ...ativitie,
+            points: e.target.value,
         });
     };
 
@@ -49,17 +57,26 @@ function NewAtivitie() {
         });
     };
 
+    const validateAtivitie = () => {
+        if (!ativitie.answers.find((answer) => answer.correct)) {
+            NotificationManager.error('Pelo menos uma resposta deve ser correta');
+            return false;
+        }
+        return true;
+    };
+
     const handleSubmit = () => {
-        console.log(ativitie);
-        axios
-            .post(`https://esoft-bckd.herokuapp.com/subjects/${id}/ativitie`, ativitie)
-            .then((response) => {
-                NotificationManager.success('Atividade criada com sucesso!');
-                navigate(`/admin/subjects/${id}`);
-            })
-            .catch((error) => {
-                NotificationManager.error('Erro ao criar atividade');
-            });
+        if (validateAtivitie()) {
+            axios
+                .post(`https://esoft-bckd.herokuapp.com/subjects/${id}/ativitie`, ativitie)
+                .then((response) => {
+                    NotificationManager.success('Atividade criada com sucesso!');
+                    navigate(`/admin/subjects/${id}`);
+                })
+                .catch((error) => {
+                    NotificationManager.error('Erro ao criar atividade');
+                });
+        }
     };
 
     return (
@@ -71,6 +88,16 @@ function NewAtivitie() {
 
                 <div className="esoft-content-ativitie">
                     <div className="esoft-content-ativitie-question">
+                        <div className="esoft-content-ativitie-question-points">
+                            <label>Quantos pontos vale a pergunta</label>
+                            <input
+                                type="number"
+                                value={ativitie.points}
+                                onChange={handlePointsChange}
+                                min={5}
+                                max={20}
+                            />
+                        </div>
                         <div className="esoft-content-ativitie-question-title">
                             <h3>Pergunta</h3>
                         </div>

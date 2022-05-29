@@ -6,7 +6,7 @@ function ChatWidget() {
     const location = useLocation();
     const user = useSelector((state) => state.user);
 
-    if (location.pathname.includes('chat-online') || !user?.userlogged) {
+    if (location.pathname.includes('chat-online') || user?.userlogged?.role !== 'Aluno') {
         return null;
     }
 
